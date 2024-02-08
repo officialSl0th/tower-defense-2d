@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://6vusjlkjjbmr"]
+[gd_scene load_steps=4 format=3 uid="uid://6vusjlkjjbmr"]
+
+[ext_resource type="PackedScene" uid="uid://bbcoo6w6wllv8" path="res://scenes/path_entity.tscn" id="1_655av"]
+[ext_resource type="PackedScene" uid="uid://dajpl8ky8fm1l" path="res://scenes/tower.tscn" id="2_aqvli"]
+
+[sub_resource type="Curve2D" id="Curve2D_wp508"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -27, 108, 0, 0, 0, 0, 839, 109, 0, 0, 0, 0, 841, 848, 0, 0, 0, 0, 1627, 852, 0, 0, 0, 0, 1966, 627)
+}
+point_count = 5
 
 [node name="Main" type="Node2D"]
+
+[node name="Tower" parent="." instance=ExtResource("2_aqvli")]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_wp508")
+
+[node name="PathEntity" parent="Path2D" instance=ExtResource("1_655av")]
+position = Vector2(-27, 108)
+move_speed = 100.0
+health = 10
