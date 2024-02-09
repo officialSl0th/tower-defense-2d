@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_wp508"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -27, 108, 0, 0, 0, 0, 839, 109, 0, 0, 0, 0, 841, 848, 0, 0, 0, 0, 1627, 852, 0, 0, 0, 0, 1966, 627)
+"points": PackedVector2Array(0, 0, 0, 0, -27, 108, 0, 0, 0, 0, 772, 321, 0, 0, 0, 0, 841, 848, 0, 0, 0, 0, 1627, 852, 0, 0, 0, 0, 1966, 627)
 }
 point_count = 5
 
@@ -23,8 +23,8 @@ curve = SubResource("Curve2D_wp508")
 [node name="PathEntity2" parent="Path2D" instance=ExtResource("1_655av")]
 position = Vector2(-27, 108)
 rotation = 0.00230946
-move_speed = 400.0
-health = 10
+move_speed = 100.0
+total_health = 15
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

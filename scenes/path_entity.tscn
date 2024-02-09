@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbcoo6w6wllv8"]
+[gd_scene load_steps=6 format=3 uid="uid://bbcoo6w6wllv8"]
 
 [ext_resource type="Script" path="res://source/PathEntityController.gd" id="1_b1xtk"]
 
@@ -6,6 +6,10 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gtd4"]
 size = Vector2(49.9988, 50)
+
+[sub_resource type="QuadMesh" id="QuadMesh_nnou6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_2n51s"]
 
 [node name="PathEntity" type="PathFollow2D"]
 position = Vector2(2.08165e-12, 2.08165e-12)
@@ -23,3 +27,16 @@ mesh = SubResource("QuadMesh_h3k30")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.00866047, -1.92043e-06)
 shape = SubResource("RectangleShape2D_5gtd4")
+
+[node name="HealthContainer" type="Node2D" parent="."]
+position = Vector2(2.08165e-12, -40)
+
+[node name="HealthBackground" type="MeshInstance2D" parent="HealthContainer"]
+modulate = Color(0, 0, 0, 0.196078)
+scale = Vector2(70, 10)
+mesh = SubResource("QuadMesh_nnou6")
+
+[node name="HealthBar" type="MeshInstance2D" parent="HealthContainer"]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(70, 10)
+mesh = SubResource("QuadMesh_2n51s")
