@@ -4,12 +4,13 @@ class_name PathEntityController
 @export var move_speed: float = 0;
 @export var health: int = 0;
 
+@onready var _damage: int = health;
+
 func _process(delta: float) -> void:
-	# despawn when end reached
 	if get_progress_ratio() == 1:
+		Health.health -= _damage;
 		queue_free()
 
-	# update position
 	set_progress(get_progress() + move_speed * delta);
 
 func take_damage(attack_damage: int) -> void:
