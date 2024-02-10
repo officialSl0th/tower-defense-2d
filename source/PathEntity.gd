@@ -1,5 +1,5 @@
 extends PathFollow2D
-class_name PathEntityController
+class_name PathEntity
 
 @export var move_speed: float = 0;
 @export var total_health: int = 0;
