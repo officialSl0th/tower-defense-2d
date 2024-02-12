@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://6vusjlkjjbmr"]
+[gd_scene load_steps=7 format=3 uid="uid://6vusjlkjjbmr"]
 
 [ext_resource type="PackedScene" uid="uid://bbcoo6w6wllv8" path="res://scenes/path_entity.tscn" id="1_655av"]
+[ext_resource type="Resource" uid="uid://dgp5kaovc1pyb" path="res://resources/archer_tower.tres" id="2_8r142"]
 [ext_resource type="PackedScene" uid="uid://dajpl8ky8fm1l" path="res://scenes/tower.tscn" id="2_aqvli"]
+[ext_resource type="Resource" uid="uid://dmr7xi37lb3bv" path="res://resources/machine_gun_tower.tres" id="3_x6vpa"]
+[ext_resource type="Resource" uid="uid://budmgpqyrjepl" path="res://resources/zombie_path_entity.tres" id="5_03dc4"]
 
 [sub_resource type="Curve2D" id="Curve2D_wp508"]
 _data = {
@@ -9,49 +12,20 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="LabelSettings" id="LabelSettings_5ng60"]
-font_size = 80
-font_color = Color(1, 0, 0, 1)
-
 [node name="Main" type="Node2D"]
 
-[node name="Tower" parent="." instance=ExtResource("2_aqvli")]
+[node name="ArcherTower" parent="." instance=ExtResource("2_aqvli")]
 position = Vector2(774, 200)
-attack_range = 100.0
-attack_damage = 5.0
-attack_speed = 3.0
-projectile_speed = 600.0
-max_projectile_range = 300.0
+resource = ExtResource("2_8r142")
 
-[node name="Tower2" parent="." instance=ExtResource("2_aqvli")]
+[node name="MachineGunTower" parent="." instance=ExtResource("2_aqvli")]
 position = Vector2(901, 780)
-attack_range = 50.0
-attack_damage = 5.0
-attack_speed = 0.5
-projectile_speed = 1200.0
-max_projectile_range = 150.0
+resource = ExtResource("3_x6vpa")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_wp508")
 
-[node name="PathEntity" parent="Path2D" instance=ExtResource("1_655av")]
+[node name="ZombieEntity" parent="Path2D" instance=ExtResource("1_655av")]
 position = Vector2(-27, 108)
 rotation = 0.00230946
-move_speed = 100.0
-total_health = 50
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="HealthLabel" type="Label" parent="Control"]
-layout_mode = 0
-offset_right = 307.0
-offset_bottom = 35.0
-text = "100"
-label_settings = SubResource("LabelSettings_5ng60")
+resource = ExtResource("5_03dc4")
