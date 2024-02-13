@@ -1,5 +1,5 @@
 extends Resource
-class_name TowerResourceBase
+class_name TowerResource
 
 @export var attack_range: float;
 @export var attack_damage: float;

@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://cigiq5coqeney"]
+
+[ext_resource type="Script" path="res://source/UIController.gd" id="1_f7cah"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o4ksl"]
+font_size = 80
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0jw7i"]
+bg_color = Color(0.541176, 0.541176, 0.541176, 1)
+
+[node name="UIOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f7cah")
+
+[node name="HealthLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_right = 220.0
+offset_bottom = 110.0
+text = "100"
+label_settings = SubResource("LabelSettings_o4ksl")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0jw7i")
+
+[node name="ArcherTowerButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -80.0
+offset_right = 180.0
+offset_bottom = 80.0
+grow_vertical = 2
+text = "Archer Tower"
+
+[node name="MachineGunTowerButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -80.0
+offset_right = 360.0
+offset_bottom = 80.0
+grow_vertical = 2
+text = "Machine Gun Tower"
+
+[connection signal="button_up" from="Panel/ArcherTowerButton" to="." method="_tower_select_button_pressed" binds= [0]]
+[connection signal="button_up" from="Panel/MachineGunTowerButton" to="." method="_tower_select_button_pressed" binds= [1]]

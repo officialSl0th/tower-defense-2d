@@ -2,30 +2,30 @@
 
 [ext_resource type="PackedScene" uid="uid://bbcoo6w6wllv8" path="res://scenes/path_entity.tscn" id="1_655av"]
 [ext_resource type="Resource" uid="uid://dgp5kaovc1pyb" path="res://resources/archer_tower.tres" id="2_8r142"]
-[ext_resource type="PackedScene" uid="uid://dajpl8ky8fm1l" path="res://scenes/tower.tscn" id="2_aqvli"]
+[ext_resource type="PackedScene" uid="uid://cigiq5coqeney" path="res://scenes/ui_overlay.tscn" id="3_aelhk"]
 [ext_resource type="Resource" uid="uid://dmr7xi37lb3bv" path="res://resources/machine_gun_tower.tres" id="3_x6vpa"]
 [ext_resource type="Resource" uid="uid://budmgpqyrjepl" path="res://resources/zombie_path_entity.tres" id="5_03dc4"]
 
 [sub_resource type="Curve2D" id="Curve2D_wp508"]
+bake_interval = 0.01
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -27, 108, 0, 0, 0, 0, 772, 321, 0, 0, 0, 0, 841, 848, 0, 0, 0, 0, 1627, 852, 0, 0, 0, 0, 1966, 627)
+"points": PackedVector2Array(0, 0, 2.08165e-12, 2.08165e-12, -27, 108, -121.843, -175.401, 121.843, 175.401, 881, 322, -468.628, 44.1849, 468.628, -44.1849, 854, 776, -227.619, 112.471, 227.619, -112.471, 1524, 408, 0, 0, 0, 0, 1966, 627)
 }
 point_count = 5
 
 [node name="Main" type="Node2D"]
 
-[node name="ArcherTower" parent="." instance=ExtResource("2_aqvli")]
-position = Vector2(774, 200)
-resource = ExtResource("2_8r142")
+[node name="TowerParent" type="Node2D" parent="."]
 
-[node name="MachineGunTower" parent="." instance=ExtResource("2_aqvli")]
-position = Vector2(901, 780)
-resource = ExtResource("3_x6vpa")
-
-[node name="Path2D" type="Path2D" parent="."]
+[node name="Path1" type="Path2D" parent="."]
 curve = SubResource("Curve2D_wp508")
 
-[node name="ZombieEntity" parent="Path2D" instance=ExtResource("1_655av")]
+[node name="ZombieEntity" parent="Path1" instance=ExtResource("1_655av")]
 position = Vector2(-27, 108)
 rotation = 0.00230946
 resource = ExtResource("5_03dc4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UIOverlay" parent="CanvasLayer" instance=ExtResource("3_aelhk")]
+towers = Array[Resource("res://source/TowerResource.gd")]([ExtResource("2_8r142"), ExtResource("3_x6vpa")])
