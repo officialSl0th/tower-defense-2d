@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://6vusjlkjjbmr"]
+[gd_scene load_steps=8 format=3 uid="uid://6vusjlkjjbmr"]
 
 [ext_resource type="PackedScene" uid="uid://bbcoo6w6wllv8" path="res://scenes/path_entity.tscn" id="1_655av"]
-[ext_resource type="Resource" uid="uid://dgp5kaovc1pyb" path="res://resources/archer_tower.tres" id="2_8r142"]
+[ext_resource type="Script" path="res://source/WaveController.gd" id="1_o4ocp"]
+[ext_resource type="Resource" uid="uid://dgp5kaovc1pyb" path="res://resources/towers/archer_tower.tres" id="2_8r142"]
+[ext_resource type="Resource" uid="uid://dlak6uphu78t5" path="res://resources/wave_containers/test_waves.tres" id="2_57l3g"]
 [ext_resource type="PackedScene" uid="uid://cigiq5coqeney" path="res://scenes/ui_overlay.tscn" id="3_aelhk"]
-[ext_resource type="Resource" uid="uid://dmr7xi37lb3bv" path="res://resources/machine_gun_tower.tres" id="3_x6vpa"]
-[ext_resource type="Resource" uid="uid://budmgpqyrjepl" path="res://resources/zombie_path_entity.tres" id="5_03dc4"]
+[ext_resource type="Resource" uid="uid://dmr7xi37lb3bv" path="res://resources/towers/machine_gun_tower.tres" id="3_x6vpa"]
 
 [sub_resource type="Curve2D" id="Curve2D_wp508"]
 bake_interval = 0.01
@@ -15,15 +16,16 @@ point_count = 5
 
 [node name="Main" type="Node2D"]
 
+[node name="WaveController" type="Node2D" parent="." node_paths=PackedStringArray("paths")]
+script = ExtResource("1_o4ocp")
+waves = ExtResource("2_57l3g")
+paths = [NodePath("../Path1")]
+entity_scene = ExtResource("1_655av")
+
 [node name="TowerParent" type="Node2D" parent="."]
 
 [node name="Path1" type="Path2D" parent="."]
 curve = SubResource("Curve2D_wp508")
-
-[node name="ZombieEntity" parent="Path1" instance=ExtResource("1_655av")]
-position = Vector2(-27, 108)
-rotation = 0.00230946
-resource = ExtResource("5_03dc4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

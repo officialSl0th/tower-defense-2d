@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Wave" load_steps=3 format=3 uid="uid://ddthc6ua5kexw"]
+
+[ext_resource type="Script" path="res://source/WaveResource.gd" id="1_i5rdy"]
+[ext_resource type="Resource" uid="uid://dny2nmtso36y7" path="res://resources/entity_groups/zombie_group_small.tres" id="1_r7qga"]
+
+[resource]
+script = ExtResource("1_i5rdy")
+entity_groups = Array[Resource("res://source/EntityGroupResource.gd")]([ExtResource("1_r7qga"), ExtResource("1_r7qga")])
+time_between_groups = 2.0

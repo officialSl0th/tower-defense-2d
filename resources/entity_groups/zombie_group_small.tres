@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EntityGroup" load_steps=3 format=3 uid="uid://dny2nmtso36y7"]
+
+[ext_resource type="Resource" uid="uid://budmgpqyrjepl" path="res://resources/path_entities/zombie_path_entity.tres" id="1_05l8g"]
+[ext_resource type="Script" path="res://source/EntityGroupResource.gd" id="1_mhoi7"]
+
+[resource]
+script = ExtResource("1_mhoi7")
+entity_resource = ExtResource("1_05l8g")
+amount_of_entities = 2
+time_between_entities = 0.5
+path_id = 0
