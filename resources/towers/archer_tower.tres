@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TowerResourceBase" load_steps=2 format=3 uid="uid://dgp5kaovc1pyb"]
+[gd_resource type="Resource" script_class="TowerResource" load_steps=2 format=3 uid="uid://dgp5kaovc1pyb"]
 
 [ext_resource type="Script" path="res://source/TowerResource.gd" id="1_km48p"]
 
@@ -6,6 +6,6 @@
 script = ExtResource("1_km48p")
 attack_range = 100.0
 attack_damage = 5.0
-attack_speed = 3.0
+attack_speed = 1.0
 projectile_speed = 600.0
 max_projectile_range = 250.0
