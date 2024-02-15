@@ -8,8 +8,8 @@ class_name WaveController
 @onready var _wave_timer: Timer = Timer.new();
 @onready var _entity_group_timer: Timer = Timer.new();
 @onready var _entity_timer: Timer = Timer.new();
-@onready var _wave_label: Label = get_node("/root/Main/CanvasLayer/UIOverlay/LabelInformation/WaveLabel");
-@onready var _countdown_label: Label = get_node("/root/Main/CanvasLayer/UIOverlay/LabelInformation/CountdownLabel");
+@onready var _wave_label: Label = get_node("/root/Main/CanvasLayer/UIOverlay/WaveInformation/WaveLabel");
+@onready var _countdown_label: Label = get_node("/root/Main/CanvasLayer/UIOverlay/WaveInformation/CountdownLabel");
 
 var _current_wave_index: int = 0;
 var _current_entity_group_index: int = 0;

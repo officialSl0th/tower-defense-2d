@@ -66,6 +66,8 @@ func confirm_tower_placement() -> bool:
 		_place_mode = false;
 		_position = get_position();
 
+		Money.money -= resource.cost;
+
 		if _path_entities_in_range:
 			_attack()
 			_attack_speed_timer.start();
@@ -80,4 +82,7 @@ func cancel_tower_placement() -> void:
 
 
 func _check_if_can_place() -> bool:
+	if Money.money < resource.cost:
+		return false;
+
 	return true;

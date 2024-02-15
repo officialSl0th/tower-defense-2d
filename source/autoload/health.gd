@@ -1,6 +1,6 @@
 extends Node;
 
-@onready var _health_label: Label = get_node("/root/Main/CanvasLayer/UIOverlay/HealthLabel");
+@onready var _health_label: Label = get_node("/root/Main/CanvasLayer/UIOverlay/ResourceInformation/HealthLabel");
 
 var health: int = 100:
 	set =_update_health_label;

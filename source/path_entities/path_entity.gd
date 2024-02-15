@@ -21,8 +21,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if get_progress_ratio() == 1:
 		Health.health -= _total_health;
-		removed.emit(self);
-		queue_free()
+		_remove();
 
 	set_progress(get_progress() + _move_speed * delta);
 
@@ -32,5 +31,10 @@ func take_damage(attack_damage: int) -> void:
 	_health_bar.size = Vector2(_current_health / float(_total_health) * _max_health_bar_size[0], 1);
 
 	if _current_health == 0:
-		removed.emit(self);
-		queue_free();
+		Money.money += resource.money;
+		_remove();
+
+
+func _remove() -> void:
+	removed.emit(self);
+	queue_free();

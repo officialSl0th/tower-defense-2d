@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cigiq5coqeney"]
+[gd_scene load_steps=11 format=3 uid="uid://cigiq5coqeney"]
 
 [ext_resource type="Script" path="res://source/ui/ui_controller.gd" id="1_f7cah"]
 [ext_resource type="Resource" uid="uid://dgp5kaovc1pyb" path="res://resources/towers/long_range_tower.tres" id="2_2rcxt"]
@@ -10,9 +10,22 @@ font_size = 80
 [sub_resource type="LabelSettings" id="LabelSettings_bi0nf"]
 font_size = 40
 
+[sub_resource type="FontVariation" id="FontVariation_f3l0v"]
+spacing_top = -25
+
 [sub_resource type="LabelSettings" id="LabelSettings_o4ksl"]
+font = SubResource("FontVariation_f3l0v")
 font_size = 80
 font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_iftw5"]
+spacing_top = -25
+spacing_bottom = -20
+
+[sub_resource type="LabelSettings" id="LabelSettings_0t5x5"]
+font = SubResource("FontVariation_iftw5")
+font_size = 80
+font_color = Color(1, 0.882353, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0jw7i"]
 bg_color = Color(0.541176, 0.541176, 0.541176, 1)
@@ -27,7 +40,7 @@ grow_vertical = 2
 script = ExtResource("1_f7cah")
 towers = Array[Resource("res://source/resource_scripts/tower_resource.gd")]([ExtResource("2_2rcxt"), ExtResource("3_usxxa")])
 
-[node name="LabelInformation" type="VBoxContainer" parent="."]
+[node name="WaveInformation" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -37,25 +50,36 @@ offset_right = 139.0
 offset_bottom = 137.0
 grow_horizontal = 2
 
-[node name="WaveLabel" type="Label" parent="LabelInformation"]
+[node name="WaveLabel" type="Label" parent="WaveInformation"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Wave 1"
 label_settings = SubResource("LabelSettings_oaevw")
 
-[node name="CountdownLabel" type="Label" parent="LabelInformation"]
+[node name="CountdownLabel" type="Label" parent="WaveInformation"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Begins in 30 seconds"
 label_settings = SubResource("LabelSettings_bi0nf")
 
-[node name="HealthLabel" type="Label" parent="."]
+[node name="ResourceInformation" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 20.0
-offset_right = 220.0
-offset_bottom = 110.0
+offset_top = 20.0
+offset_right = 158.0
+offset_bottom = 154.0
+
+[node name="HealthLabel" type="Label" parent="ResourceInformation"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 text = "100"
 label_settings = SubResource("LabelSettings_o4ksl")
+
+[node name="MoneyLabel" type="Label" parent="ResourceInformation"]
+layout_mode = 2
+text = "500"
+label_settings = SubResource("LabelSettings_0t5x5")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

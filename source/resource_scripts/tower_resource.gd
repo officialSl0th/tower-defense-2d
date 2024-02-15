@@ -6,3 +6,4 @@ class_name TowerResource;
 @export var attack_speed: float;
 @export var projectile_speed: float;
 @export var max_projectile_range: float;
+@export var cost: int;

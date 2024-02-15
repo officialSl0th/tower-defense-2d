@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TowerResourceBase" load_steps=2 format=3 uid="uid://dmr7xi37lb3bv"]
+[gd_resource type="Resource" script_class="TowerResource" load_steps=2 format=3 uid="uid://dmr7xi37lb3bv"]
 
 [ext_resource type="Script" path="res://source/resource_scripts/tower_resource.gd" id="1_ikhbc"]
 
@@ -9,3 +9,4 @@ attack_damage = 5.0
 attack_speed = 0.5
 projectile_speed = 1200.0
 max_projectile_range = 150.0
+cost = 200

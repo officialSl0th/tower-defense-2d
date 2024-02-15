@@ -6,3 +6,4 @@
 script = ExtResource("1_wwn61")
 move_speed = 100.0
 total_health = 50
+money = 50
