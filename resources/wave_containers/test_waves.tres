@@ -6,6 +6,6 @@
 
 [resource]
 script = ExtResource("1_jpfbk")
-time_before_waves = 1.0
-time_between_waves = 3.0
+time_before_waves = 5.0
+time_between_waves = 4.0
 waves = Array[Resource("res://source/WaveResource.gd")]([ExtResource("2_1qs80"), ExtResource("3_giske")])

@@ -7,5 +7,5 @@
 script = ExtResource("1_mhoi7")
 entity_resource = ExtResource("1_05l8g")
 amount_of_entities = 2
-time_between_entities = 0.5
+time_between_entities = 1.0
 path_id = 0
