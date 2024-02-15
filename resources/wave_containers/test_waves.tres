@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="Waves" load_steps=4 format=3 uid="uid://dlak6uphu78t5"]
+[gd_resource type="Resource" script_class="WavesResource" load_steps=4 format=3 uid="uid://d3vt4f752obmp"]
 
-[ext_resource type="Script" path="res://source/WavesResource.gd" id="1_jpfbk"]
-[ext_resource type="Resource" uid="uid://dxjebpxsm7e5n" path="res://resources/waves/test_wave_1.tres" id="2_1qs80"]
-[ext_resource type="Resource" uid="uid://ddthc6ua5kexw" path="res://resources/waves/test_wave_2.tres" id="3_giske"]
+[ext_resource type="Script" path="res://source/resource_scripts/waves_resource.gd" id="1_jpfbk"]
+[ext_resource type="Resource" uid="uid://6tuwl102bu11" path="res://resources/waves/test_wave_1.tres" id="2_1qs80"]
+[ext_resource type="Resource" uid="uid://3e34wes3quee" path="res://resources/waves/test_wave_2.tres" id="3_giske"]
 
 [resource]
 script = ExtResource("1_jpfbk")
-time_before_waves = 5.0
-time_between_waves = 4.0
-waves = Array[Resource("res://source/WaveResource.gd")]([ExtResource("2_1qs80"), ExtResource("3_giske")])
+time_before_waves = 3.0
+time_between_waves = 3.0
+waves = Array[Resource("res://source/resource_scripts/wave_resource.gd")]([ExtResource("2_1qs80"), ExtResource("3_giske")])

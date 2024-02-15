@@ -1,5 +1,5 @@
-extends Node2D
-class_name Projectile
+extends Node2D;
+class_name Projectile;
 
 var _direction: Vector2;
 var _speed: float;
@@ -16,6 +16,7 @@ func _process(delta) -> void:
 	if sqrt(_direction_raw[0] * _direction_raw[0] + _direction_raw[1] * _direction_raw[1]) > _max_travel_distance:
 		queue_free();
 
+
 func initialize(direction: Vector2, speed: float, max_travel_distance: float, damage: int) -> void:
 	_direction = direction;
 	_speed = speed;
@@ -23,6 +24,7 @@ func initialize(direction: Vector2, speed: float, max_travel_distance: float, da
 	_damage = damage;
 
 	set_rotation(atan(direction[1] / direction[0]));
+
 
 func _hit(body: Area2D) -> void:
 	var _parent: Node2D = body.get_parent();

@@ -1,4 +1,4 @@
-extends Node
+extends Node;
 
 @onready var _health_label: Label = get_node("/root/Main/CanvasLayer/UIOverlay/HealthLabel");
 

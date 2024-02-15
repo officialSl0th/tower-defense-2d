@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dajpl8ky8fm1l"]
 
-[ext_resource type="Script" path="res://source/Tower.gd" id="1_04i6n"]
+[ext_resource type="Script" path="res://source/towers/tower.gd" id="1_04i6n"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_vaxhq"]
 

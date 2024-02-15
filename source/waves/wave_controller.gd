@@ -1,7 +1,7 @@
 extends Node
 class_name WaveController
 
-@export var waves: Waves;
+@export var waves: WavesResource;
 @export var paths: Array[Path2D];
 @export var entity_scene: PackedScene;
 
@@ -15,8 +15,8 @@ var _current_wave_index: int = 0;
 var _current_entity_group_index: int = 0;
 var _current_entity_index: int = 0;
 
-var _current_wave: Wave;
-var _current_entity_group: EntityGroup;
+var _current_wave: WaveResource;
+var _current_entity_group: EntityGroupResource;
 var _entity_list: Array[PathEntity];
 
 func _ready() -> void:
@@ -48,6 +48,7 @@ func _process(_delta: float) -> void:
 
 	_countdown_label.set_text("Begins in " + _formatted + " seconds");
 
+
 func _start_wave() -> void:
 	_current_wave = waves.waves[_current_wave_index];
 	_countdown_label.set_text("");
@@ -55,6 +56,7 @@ func _start_wave() -> void:
 	_entity_group_timer.set_wait_time(_current_wave.time_between_groups);
 	_current_entity_group_index = 0;
 	_start_entity_group();
+
 
 func _end_wave() -> void:
 	_current_wave_index += 1;
@@ -64,11 +66,13 @@ func _end_wave() -> void:
 		_wave_timer.set_wait_time(waves.time_between_waves);
 		_wave_timer.start();
 
+
 func _start_entity_group() -> void:
 	_current_entity_group = _current_wave.entity_groups[_current_entity_group_index];
 	_entity_timer.set_wait_time(_current_entity_group.time_between_entities);
 	_entity_timer.start();
 	_spawn_entity();
+
 
 func _end_entity_group() -> void:
 	_current_entity_group_index += 1;
@@ -77,6 +81,7 @@ func _end_entity_group() -> void:
 
 	if _current_entity_group_index < len(_current_wave.entity_groups):
 		_entity_group_timer.start();
+
 
 func _spawn_entity() -> void:
 	if _current_entity_index == _current_entity_group.amount_of_entities:
@@ -93,6 +98,7 @@ func _spawn_entity() -> void:
 	paths[_current_entity_group.path_id].add_child(_entity);
 	_current_entity_index += 1;
 	_entity_list.append(_entity);
+
 
 func _entity_removed(entity: PathEntity) -> void:
 	_entity_list.erase(entity);

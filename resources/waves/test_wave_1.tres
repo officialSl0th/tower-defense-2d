@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Wave" load_steps=3 format=3 uid="uid://dxjebpxsm7e5n"]
+[gd_resource type="Resource" script_class="WaveResource" load_steps=3 format=3 uid="uid://6tuwl102bu11"]
 
-[ext_resource type="Resource" uid="uid://dny2nmtso36y7" path="res://resources/entity_groups/zombie_group_small.tres" id="1_aqjrq"]
-[ext_resource type="Script" path="res://source/WaveResource.gd" id="1_rap1k"]
+[ext_resource type="Resource" uid="uid://phntcoole1k" path="res://resources/entity_groups/test_entity_group.tres" id="1_2b7iu"]
+[ext_resource type="Script" path="res://source/resource_scripts/wave_resource.gd" id="1_rap1k"]
 
 [resource]
 script = ExtResource("1_rap1k")
-entity_groups = Array[Resource("res://source/EntityGroupResource.gd")]([ExtResource("1_aqjrq")])
+entity_groups = Array[Resource("res://source/resource_scripts/entity_group_resource.gd")]([ExtResource("1_2b7iu")])
 time_between_groups = 1.0

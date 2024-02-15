@@ -1,5 +1,5 @@
-extends Resource
-class_name EntityGroup
+extends Resource;
+class_name EntityGroupResource;
 
 @export var entity_resource: PathEntityResource;
 @export var amount_of_entities: int;

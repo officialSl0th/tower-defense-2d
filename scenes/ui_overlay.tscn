@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cigiq5coqeney"]
+[gd_scene load_steps=8 format=3 uid="uid://cigiq5coqeney"]
 
-[ext_resource type="Script" path="res://source/UIController.gd" id="1_f7cah"]
+[ext_resource type="Script" path="res://source/ui/ui_controller.gd" id="1_f7cah"]
+[ext_resource type="Resource" uid="uid://dgp5kaovc1pyb" path="res://resources/towers/long_range_tower.tres" id="2_2rcxt"]
+[ext_resource type="Resource" uid="uid://dmr7xi37lb3bv" path="res://resources/towers/short_range_tower.tres" id="3_usxxa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oaevw"]
 font_size = 80
@@ -23,6 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f7cah")
+towers = Array[Resource("res://source/resource_scripts/tower_resource.gd")]([ExtResource("2_2rcxt"), ExtResource("3_usxxa")])
 
 [node name="LabelInformation" type="VBoxContainer" parent="."]
 layout_mode = 1

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bbcoo6w6wllv8"]
 
-[ext_resource type="Script" path="res://source/PathEntity.gd" id="1_g1j3x"]
+[ext_resource type="Script" path="res://source/path_entities/path_entity.gd" id="1_g1j3x"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_h3k30"]
 

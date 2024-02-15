@@ -1,5 +1,5 @@
-extends Node2D
-class_name Tower
+extends Node2D;
+class_name Tower;
 
 @export var resource: TowerResource;
 
@@ -28,14 +28,17 @@ func _ready() -> void:
 	_attack_range_collision_shape.shape.radius = _attack_range;
 	_attack_speed_timer.set_wait_time(_attack_speed);
 
+
 func _draw() -> void:
 	draw_circle(Vector2(0, 0), _attack_range * 2, _attack_range_color);
+
 
 func _attack() -> void:
 	var _direction: Vector2 = (_path_entities_in_range[0].get_position() - _position).normalized();
 	var _projectile: Projectile = _projectile_scene.instantiate();
 	_projectile.initialize(_direction, _projectile_speed, _max_projectile_range, _attack_damage);
 	add_child(_projectile);
+
 
 func _path_entity_entered(entity: Area2D) -> void:
 	var _parent: Node2D = entity.get_parent();
@@ -47,6 +50,7 @@ func _path_entity_entered(entity: Area2D) -> void:
 			_attack();
 			_attack_speed_timer.start();
 
+
 func _path_entity_exited(entity: Area2D) -> void:
 	var _parent = entity.get_parent();
 
@@ -55,6 +59,7 @@ func _path_entity_exited(entity: Area2D) -> void:
 
 		if _path_entities_in_range.is_empty():
 			_attack_speed_timer.stop();
+
 
 func confirm_tower_placement() -> bool:
 	if _check_if_can_place():
@@ -69,8 +74,10 @@ func confirm_tower_placement() -> bool:
 
 	return false;
 
+
 func cancel_tower_placement() -> void:
 	queue_free();
+
 
 func _check_if_can_place() -> bool:
 	return true;

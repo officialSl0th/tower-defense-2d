@@ -1,10 +1,10 @@
-extends Control
-class_name UIController
+extends Control;
+class_name UIController;
 
 @export var towers: Array[TowerResource];
 
 @onready var _tower_scene: PackedScene = preload("res://scenes/tower.tscn");
-@onready var _tower_parent: Node2D = $"../../TowerParent";
+@onready var _tower_parent: Node2D = $"../../Towers";
 @onready var _viewport_size: Vector2 = get_viewport_rect().size;
 
 var _tower_to_place: Tower;
@@ -14,6 +14,7 @@ func _tower_select_button_pressed(id: int) -> void:
 	_tower_to_place.set_position(get_viewport().get_mouse_position());
 	_tower_to_place.resource = towers[id];
 	_tower_parent.add_child(_tower_to_place);
+
 
 func _input(event: InputEvent) -> void:
 	if !_tower_to_place:
