@@ -34,7 +34,12 @@ func _draw() -> void:
 
 
 func _attack() -> void:
-	var _direction: Vector2 = (_path_entities_in_range[0].get_position() - _position).normalized();
+	var _old_target = _path_entities_in_range[0].get_position();
+	var _dist_to_target = _old_target.distance_to(_position);
+	var _time_to_hit = _dist_to_target / _projectile_speed;
+	var _new_target = _path_entities_in_range[0].get_future_position(_time_to_hit);
+
+	var _direction: Vector2 = (_new_target - _position).normalized();
 	var _projectile: Projectile = _projectile_scene.instantiate();
 	_projectile.initialize(_direction, _projectile_speed, _max_projectile_range, _attack_damage);
 	add_child(_projectile);

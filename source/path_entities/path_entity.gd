@@ -8,6 +8,9 @@ var resource: PathEntityResource;
 @onready var _health_bar: QuadMesh = $HealthContainer/HealthBar.get_mesh();
 @onready var _max_health_bar_size: Vector2 = _health_bar.size;
 
+var path: Path2D;
+var curve: Curve2D;
+
 var _move_speed: float;
 var _total_health: int;
 var _current_health: int;
@@ -17,8 +20,11 @@ func _ready() -> void:
 	_total_health = resource.total_health;
 	_current_health = _total_health;
 
+	path = get_parent();
+	curve = path.get_curve();
 
-func _process(delta: float) -> void:
+
+func _physics_process(delta: float) -> void:
 	if get_progress_ratio() == 1:
 		Health.health -= _total_health;
 		_remove();
@@ -33,6 +39,19 @@ func take_damage(attack_damage: int) -> void:
 	if _current_health == 0:
 		Money.money += resource.money;
 		_remove();
+
+
+func get_future_position(time: float) -> Vector2:
+	var _progress = get_progress();
+	var _new_progress = _progress + _move_speed * time;
+
+	var _dummy = PathFollow2D.new();
+	path.add_child(_dummy);
+	_dummy.set_progress(_new_progress);
+	var _new_position = _dummy.get_position();
+	_dummy.queue_free();
+
+	return _new_position;
 
 
 func _remove() -> void:

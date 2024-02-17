@@ -6,7 +6,7 @@
 script = ExtResource("1_km48p")
 attack_range = 100.0
 attack_damage = 5.0
-attack_speed = 3.0
+attack_speed = 1.5
 projectile_speed = 600.0
 max_projectile_range = 250.0
 cost = 100
