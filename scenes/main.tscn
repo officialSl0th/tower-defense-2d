@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://tbgp48n4te7a"]
+[gd_scene load_steps=8 format=3 uid="uid://tbgp48n4te7a"]
 
 [ext_resource type="Script" path="res://source/waves/wave_controller.gd" id="1_v078i"]
 [ext_resource type="Resource" uid="uid://d3vt4f752obmp" path="res://resources/wave_containers/test_waves.tres" id="2_qpy4s"]
@@ -10,6 +10,15 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -66, 270, -71.6026, -124.209, 71.6026, 124.209, 489, 282, -100.828, -130.054, 100.828, 130.054, 420, 559, 0, 0, 0, 0, 698, 659, -226.498, -78.909, 226.498, 78.909, 1262, 581, -111.057, 52.606, 111.057, -52.606, 1592, 415, -70.1414, -27.7643, 70.1414, 27.7643, 1798, 510, 0, 0, 0, 0, 1990, 488)
 }
 point_count = 8
+
+[sub_resource type="GDScript" id="GDScript_mnooc"]
+script/source = "extends Path2D
+
+func _read() ->  void:
+	$PathCollisionArea/PathCollisionShape.polygon = get_curve().tesselate();
+"
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_q1lhu"]
 
 [node name="Main" type="Node2D"]
 
@@ -23,7 +32,18 @@ entity_scene = ExtResource("3_puh2s")
 
 [node name="Path1" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_q4e8h")
+script = SubResource("GDScript_mnooc")
+
+[node name="Area2D" type="Area2D" parent="Paths/Path1"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Paths/Path1/Area2D"]
+polygon = PackedVector2Array(-70, 247, 213, 196, 417, 206, 508, 257, 526, 340, 488, 402, 449, 440, 422, 492, 447, 549, 491, 590, 576, 632, 697, 639, 832, 587, 1012, 544, 1214, 543, 1296, 564, 1381, 583, 1455, 534, 1498, 468, 1561, 410, 1637, 383, 1702, 399, 1773, 476, 1832, 501, 1979, 475, 1993, 516, 1846, 541, 1777, 523, 1698, 449, 1660, 425, 1602, 439, 1533, 512, 1461, 592, 1366, 631, 1260, 610, 1184, 589, 1024, 583, 849, 629, 691, 693, 536, 664, 445, 616, 384, 543, 378, 464, 418, 405, 473, 350, 471, 299, 388, 264, 211, 252, -76, 305)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UIOverlay" parent="CanvasLayer" instance=ExtResource("3_aelhk")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_q1lhu")

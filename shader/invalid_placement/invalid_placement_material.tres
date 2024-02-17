@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://df0tympq1qs0"]
+
+[ext_resource type="Shader" path="res://shader/invalid_placement/invalid_placement_shader.gdshader" id="1_i244d"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_i244d")
+shader_parameter/can_place = true
