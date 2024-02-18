@@ -1,7 +1,10 @@
 extends Tower;
-class_name CoralReef;
+class_name BlueEel;
 
 @export var projectile: PackedScene;
+@export var duration_of_shock: float;
+@export var time_between_shocks: float;
+@export var shock_damage: int;
 
 func _attack() -> void:
 	var _old_target = _path_entities_in_range[0].get_position();
@@ -14,6 +17,9 @@ func _attack() -> void:
 
 
 func _spawn_projectile(direction: Vector2) -> void:
-	var _projectile: Projectile = projectile.instantiate();
+	var _projectile = projectile.instantiate();
 	_projectile.initialize(direction, projectile_speed, max_projectile_range, attack_damage);
+	_projectile.duration_of_shock = duration_of_shock;
+	_projectile.time_between_shocks = time_between_shocks;
+	_projectile.shock_damage = shock_damage;
 	add_child(_projectile);
