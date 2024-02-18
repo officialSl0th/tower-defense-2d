@@ -1,15 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://tbgp48n4te7a"]
+[gd_scene load_steps=9 format=3 uid="uid://tbgp48n4te7a"]
 
+[ext_resource type="Texture2D" uid="uid://bb8obo8esgsr6" path="res://assets/sprites/background1.png" id="1_u4pyy"]
 [ext_resource type="Script" path="res://source/waves/wave_controller.gd" id="1_v078i"]
 [ext_resource type="Resource" uid="uid://d3vt4f752obmp" path="res://resources/wave_containers/test_waves.tres" id="2_qpy4s"]
 [ext_resource type="PackedScene" uid="uid://cigiq5coqeney" path="res://scenes/ui_overlay.tscn" id="3_aelhk"]
 [ext_resource type="PackedScene" uid="uid://bbcoo6w6wllv8" path="res://scenes/path_entity.tscn" id="3_puh2s"]
+[ext_resource type="PackedScene" uid="uid://dbq6h6fwaxcya" path="res://scenes/bubble_particle.tscn" id="6_767in"]
 
 [sub_resource type="Curve2D" id="Curve2D_q4e8h"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -66, 270, -71.6026, -124.209, 71.6026, 124.209, 489, 282, -100.828, -130.054, 100.828, 130.054, 420, 559, 0, 0, 0, 0, 698, 659, -226.498, -78.909, 226.498, 78.909, 1262, 581, -111.057, 52.606, 111.057, -52.606, 1592, 415, -70.1414, -27.7643, 70.1414, 27.7643, 1798, 510, 0, 0, 0, 0, 1990, 488)
+"points": PackedVector2Array(0, 0, 0, 0, -32, 363, -163.097, 53.5181, 103.988, -12.8413, 351, 307, -25.0952, -140.811, 10.0397, 138.934, 638, 449, -100.828, -130.054, 84.0396, 37.4377, 576, 776, -8.92147, 39.4976, 26.219, -61.851, 758, 618, -35.2713, 9.69962, 67.4565, -11.0223, 882, 487, -80.5628, 8.38759, 49.8644, 20.0311, 1052, 584, -59.2851, -1.70376, 121.716, -20.1217, 1260, 512, -99.0728, 7.76545, 76.2322, 0.863205, 1597, 592, -82.7336, 3.55297, 133.49, -15.7346, 1795, 629, 0, 0, 0, 0, 1982, 616)
 }
-point_count = 8
+point_count = 11
 
 [sub_resource type="GDScript" id="GDScript_mnooc"]
 script/source = "extends Path2D
@@ -18,9 +20,14 @@ func _read() ->  void:
 	$PathCollisionArea/PathCollisionShape.polygon = get_curve().tesselate();
 "
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_q1lhu"]
-
 [node name="Main" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(6, 6)
+texture = ExtResource("1_u4pyy")
+centered = false
 
 [node name="Towers" type="Node2D" parent="."]
 
@@ -39,11 +46,30 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Paths/Path1/Area2D"]
-polygon = PackedVector2Array(-70, 247, 213, 196, 417, 206, 508, 257, 526, 340, 488, 402, 449, 440, 422, 492, 447, 549, 491, 590, 576, 632, 697, 639, 832, 587, 1012, 544, 1214, 543, 1296, 564, 1381, 583, 1455, 534, 1498, 468, 1561, 410, 1637, 383, 1702, 399, 1773, 476, 1832, 501, 1979, 475, 1993, 516, 1846, 541, 1777, 523, 1698, 449, 1660, 425, 1602, 439, 1533, 512, 1461, 592, 1366, 631, 1260, 610, 1184, 589, 1024, 583, 849, 629, 691, 693, 536, 664, 445, 616, 384, 543, 378, 464, 418, 405, 473, 350, 471, 299, 388, 264, 211, 252, -76, 305)
+polygon = PackedVector2Array(-29, 336, 145, 321, 361, 273, 442, 272, 548, 297, 609, 333, 661, 387, 670, 425, 671, 477, 658, 535, 623, 587, 605, 617, 583, 652, 577, 709, 587, 740, 605, 751, 667, 719, 695, 676, 745, 570, 803, 510, 842, 471, 885, 457, 927, 457, 988, 511, 1004, 536, 1042, 548, 1080, 550, 1125, 535, 1164, 505, 1196, 489, 1248, 479, 1326, 485, 1390, 496, 1520, 543, 1624, 559, 1720, 587, 1770, 592, 1860, 592, 1964, 589, 1967, 646, 1879, 656, 1750, 655, 1702, 647, 1606, 620, 1549, 618, 1470, 601, 1444, 583, 1300, 541, 1221, 549, 1129, 606, 1102, 610, 1019, 612, 995, 606, 956, 572, 931, 547, 913, 529, 890, 524, 864, 533, 833, 566, 810, 597, 790, 627, 745, 715, 681, 785, 624, 811, 562, 804, 527, 775, 514, 735, 515, 672, 529, 616, 601, 506, 611, 462, 608, 419, 590, 398, 541, 363, 456, 333, 387, 330, 95, 383, -28, 395)
+
+[node name="Particles" type="Node2D" parent="."]
+
+[node name="Bubbles" parent="Particles" instance=ExtResource("6_767in")]
+position = Vector2(1271, 394)
+time_before_first = 1.0
+time_between = 3.0
+
+[node name="Bubbles2" parent="Particles" instance=ExtResource("6_767in")]
+position = Vector2(445, 481)
+time_before_first = 2.0
+time_between = 2.0
+
+[node name="Bubbles3" parent="Particles" instance=ExtResource("6_767in")]
+position = Vector2(810, 255)
+time_before_first = 5.0
+time_between = 3.0
+
+[node name="Bubbles4" parent="Particles" instance=ExtResource("6_767in")]
+position = Vector2(1131, 751)
+time_before_first = 0.5
+time_between = 4.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UIOverlay" parent="CanvasLayer" instance=ExtResource("3_aelhk")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("SegmentShape2D_q1lhu")

@@ -36,7 +36,7 @@ func take_damage(attack_damage: int) -> void:
 	_current_health -= attack_damage
 	_health_bar.size = Vector2(_current_health / float(_total_health) * _max_health_bar_size[0], 1);
 
-	if _current_health == 0:
+	if _current_health <= 0:
 		Money.money += resource.money;
 		_remove();
 

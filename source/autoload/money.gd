@@ -1,6 +1,6 @@
 extends Node;
 
-@onready var _money_label: Label = get_node("/root/Main/CanvasLayer/UIOverlay/ResourceInformation/MoneyLabel");
+@onready var _money_label: Label = get_node("/root/Main/CanvasLayer/UIOverlay/ResourceInformation/MoneyContainer/MoneyLabel");
 
 var money: int = 500:
 	set =_update_money_label;

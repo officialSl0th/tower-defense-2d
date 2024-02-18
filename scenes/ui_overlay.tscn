@@ -1,31 +1,30 @@
-[gd_scene load_steps=11 format=3 uid="uid://cigiq5coqeney"]
+[gd_scene load_steps=13 format=3 uid="uid://cigiq5coqeney"]
 
 [ext_resource type="Script" path="res://source/ui/ui_controller.gd" id="1_f7cah"]
-[ext_resource type="Resource" uid="uid://dgp5kaovc1pyb" path="res://resources/towers/long_range_tower.tres" id="2_2rcxt"]
-[ext_resource type="Resource" uid="uid://dmr7xi37lb3bv" path="res://resources/towers/short_range_tower.tres" id="3_usxxa"]
+[ext_resource type="PackedScene" uid="uid://dpjuaiaetup53" path="res://scenes/towers/coral_reef.tscn" id="2_2gdr5"]
+[ext_resource type="PackedScene" uid="uid://dl3h41gv62s85" path="res://scenes/towers/short_range_scene.tscn" id="3_y6qbu"]
+[ext_resource type="PackedScene" uid="uid://damrm4g77d75v" path="res://scenes/towers/pufferfish.tscn" id="4_733sn"]
+[ext_resource type="Texture2D" uid="uid://54qtthli173o" path="res://assets/sprites/heart.png" id="4_k18b4"]
+[ext_resource type="Texture2D" uid="uid://s4rvkq8dlv2m" path="res://assets/sprites/shell.png" id="4_lhv4d"]
+[ext_resource type="FontFile" uid="uid://l52hmisuf86m" path="res://assets/fonts/retro_gaming.ttf" id="5_v4qyh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oaevw"]
+font = ExtResource("5_v4qyh")
 font_size = 80
 
 [sub_resource type="LabelSettings" id="LabelSettings_bi0nf"]
+font = ExtResource("5_v4qyh")
 font_size = 40
 
-[sub_resource type="FontVariation" id="FontVariation_f3l0v"]
-spacing_top = -25
-
-[sub_resource type="LabelSettings" id="LabelSettings_o4ksl"]
-font = SubResource("FontVariation_f3l0v")
-font_size = 80
-font_color = Color(1, 0, 0, 1)
-
-[sub_resource type="FontVariation" id="FontVariation_iftw5"]
-spacing_top = -25
-spacing_bottom = -20
+[sub_resource type="LabelSettings" id="LabelSettings_xgk8x"]
+font = ExtResource("5_v4qyh")
+font_size = 50
+font_color = Color(0.00392157, 0.85098, 0.85098, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0t5x5"]
-font = SubResource("FontVariation_iftw5")
-font_size = 80
-font_color = Color(1, 0.882353, 0, 1)
+font = ExtResource("5_v4qyh")
+font_size = 50
+font_color = Color(1, 0.682353, 0.905882, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qe5dv"]
 size = Vector2(1920, 200)
@@ -38,7 +37,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f7cah")
-towers = Array[Resource("res://source/resource_scripts/tower_resource.gd")]([ExtResource("2_2rcxt"), ExtResource("3_usxxa")])
+towers = Array[PackedScene]([ExtResource("2_2gdr5"), ExtResource("3_y6qbu"), ExtResource("4_733sn")])
 
 [node name="WaveInformation" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -66,17 +65,38 @@ label_settings = SubResource("LabelSettings_bi0nf")
 layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0
-offset_right = 158.0
-offset_bottom = 154.0
+offset_right = 159.0
+offset_bottom = 122.0
 
-[node name="HealthLabel" type="Label" parent="ResourceInformation"]
+[node name="HealthContainer" type="HBoxContainer" parent="ResourceInformation"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+
+[node name="HealthTexture" type="TextureRect" parent="ResourceInformation/HealthContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_k18b4")
+expand_mode = 3
+
+[node name="HealthLabel" type="Label" parent="ResourceInformation/HealthContainer"]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_xgk8x")
+
+[node name="MoneyContainer" type="HBoxContainer" parent="ResourceInformation"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "100"
-label_settings = SubResource("LabelSettings_o4ksl")
 
-[node name="MoneyLabel" type="Label" parent="ResourceInformation"]
+[node name="MoneyTexture" type="TextureRect" parent="ResourceInformation/MoneyContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("4_lhv4d")
+expand_mode = 3
+
+[node name="MoneyLabel" type="Label" parent="ResourceInformation/MoneyContainer"]
 layout_mode = 2
 text = "500"
 label_settings = SubResource("LabelSettings_0t5x5")
@@ -98,15 +118,23 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="LongRangeTower" type="Button" parent="ScrollContainer/HBoxContainer"]
+[node name="CoralReefTower" type="Button" parent="ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 2.08165e-12)
 layout_mode = 2
-text = "Long Range"
+text = "Coral Reef
+100"
 
 [node name="CloseRangeTower" type="Button" parent="ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 2.08165e-12)
 layout_mode = 2
-text = "Close Range"
+text = "Close Range
+200"
+
+[node name="PufferfishTower" type="Button" parent="ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 2.08165e-12)
+layout_mode = 2
+text = "Pufferfish
+300"
 
 [node name="Area2D" type="Area2D" parent="ScrollContainer/HBoxContainer"]
 collision_layer = 2
@@ -116,5 +144,6 @@ collision_mask = 2
 position = Vector2(960, 100)
 shape = SubResource("RectangleShape2D_qe5dv")
 
-[connection signal="button_up" from="ScrollContainer/HBoxContainer/LongRangeTower" to="." method="_tower_select_button_pressed" binds= [0]]
+[connection signal="button_up" from="ScrollContainer/HBoxContainer/CoralReefTower" to="." method="_tower_select_button_pressed" binds= [0]]
 [connection signal="button_up" from="ScrollContainer/HBoxContainer/CloseRangeTower" to="." method="_tower_select_button_pressed" binds= [1]]
+[connection signal="button_up" from="ScrollContainer/HBoxContainer/PufferfishTower" to="." method="_tower_select_button_pressed" binds= [2]]

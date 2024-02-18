@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbq6h6fwaxcya"]
+
+[ext_resource type="Texture2D" uid="uid://co4uwu6ab4ipw" path="res://assets/sprites/bubble.png" id="1_ripxq"]
+[ext_resource type="Script" path="res://source/particles/bubbles.gd" id="2_euuas"]
+
+[sub_resource type="Curve" id="Curve_tbuy0"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_86lk7"]
+curve = SubResource("Curve_tbuy0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kj0nm"]
+particle_flag_disable_z = true
+direction = Vector3(2.08165e-12, -1, 2.08165e-12)
+spread = 10.0
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_86lk7")
+
+[node name="Bubbles" type="GPUParticles2D"]
+texture_filter = 1
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_kj0nm")
+texture = ExtResource("1_ripxq")
+lifetime = 3.0
+one_shot = true
+script = ExtResource("2_euuas")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="finished" from="." to="." method="_on_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

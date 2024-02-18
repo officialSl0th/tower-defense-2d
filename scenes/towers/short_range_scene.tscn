@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://dl3h41gv62s85"]
+
+[ext_resource type="Script" path="res://source/towers/short_range.gd" id="1_pmnub"]
+[ext_resource type="PackedScene" uid="uid://b2jsf0enmawvb" path="res://scenes/projectile.tscn" id="2_od1et"]
+[ext_resource type="Material" uid="uid://df0tympq1qs0" path="res://shader/invalid_placement/invalid_placement_material.tres" id="2_yasrq"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_vaxhq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atgyj"]
+size = Vector2(50, 50)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j6vll"]
+resource_local_to_scene = true
+
+[node name="Tower" type="Node2D"]
+script = ExtResource("1_pmnub")
+projectile = ExtResource("2_od1et")
+attack_range = 50.0
+attack_damage = 2
+attack_speed = 0.2
+projectile_speed = 1200.0
+max_projectile_range = 150.0
+cost = 200
+
+[node name="AttackSpeedTimer" type="Timer" parent="."]
+
+[node name="Sprite" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0.666667, 1, 1)
+material = ExtResource("2_yasrq")
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(50, 50)
+mesh = SubResource("QuadMesh_vaxhq")
+
+[node name="TowerArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerArea"]
+shape = SubResource("RectangleShape2D_atgyj")
+
+[node name="RangeArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeArea"]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_j6vll")
+
+[connection signal="timeout" from="AttackSpeedTimer" to="." method="_attack"]
+[connection signal="area_entered" from="RangeArea" to="." method="_path_entity_entered"]
+[connection signal="area_exited" from="RangeArea" to="." method="_path_entity_exited"]
