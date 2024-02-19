@@ -11,6 +11,9 @@ func _hit(body: Area2D) -> void:
 	var _parent: Node2D = body.get_parent();
 
 	if _parent is PathEntity:
+		_parent.take_damage(_damage);
+		queue_free();
+
 		if _has_schock(body.get_parent()):
 			return;
 
@@ -20,9 +23,6 @@ func _hit(body: Area2D) -> void:
 		shock_node.time_between_shocks = time_between_shocks;
 		shock_node.shock_damage = shock_damage;
 		body.get_parent().add_child(shock_node);
-
-		queue_free();
-
 
 func _has_schock(target: PathEntity) -> bool:
 	for child in target.get_children():

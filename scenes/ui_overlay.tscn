@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cigiq5coqeney"]
+[gd_scene load_steps=13 format=3 uid="uid://cigiq5coqeney"]
 
 [ext_resource type="Script" path="res://source/ui/ui_controller.gd" id="1_f7cah"]
 [ext_resource type="PackedScene" uid="uid://dpjuaiaetup53" path="res://scenes/towers/coral_reef.tscn" id="2_2gdr5"]
-[ext_resource type="PackedScene" uid="uid://dl3h41gv62s85" path="res://scenes/towers/short_range_scene.tscn" id="3_y6qbu"]
 [ext_resource type="PackedScene" uid="uid://damrm4g77d75v" path="res://scenes/towers/pufferfish.tscn" id="4_733sn"]
 [ext_resource type="Texture2D" uid="uid://54qtthli173o" path="res://assets/sprites/heart.png" id="4_k18b4"]
 [ext_resource type="Texture2D" uid="uid://s4rvkq8dlv2m" path="res://assets/sprites/shell.png" id="4_lhv4d"]
@@ -38,7 +37,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f7cah")
-towers = Array[PackedScene]([ExtResource("2_2gdr5"), ExtResource("3_y6qbu"), ExtResource("4_733sn"), ExtResource("5_bqoux")])
+towers = Array[PackedScene]([ExtResource("2_2gdr5"), ExtResource("4_733sn"), ExtResource("5_bqoux")])
 
 [node name="WaveInformation" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -125,12 +124,6 @@ layout_mode = 2
 text = "Coral Reef
 100"
 
-[node name="CloseRangeTower" type="Button" parent="ScrollContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 2.08165e-12)
-layout_mode = 2
-text = "Close Range
-200"
-
 [node name="PufferfishTower" type="Button" parent="ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 2.08165e-12)
 layout_mode = 2
@@ -152,6 +145,5 @@ position = Vector2(960, 100)
 shape = SubResource("RectangleShape2D_qe5dv")
 
 [connection signal="button_up" from="ScrollContainer/HBoxContainer/CoralReefTower" to="." method="_tower_select_button_pressed" binds= [0]]
-[connection signal="button_up" from="ScrollContainer/HBoxContainer/CloseRangeTower" to="." method="_tower_select_button_pressed" binds= [1]]
-[connection signal="button_up" from="ScrollContainer/HBoxContainer/PufferfishTower" to="." method="_tower_select_button_pressed" binds= [2]]
-[connection signal="button_up" from="ScrollContainer/HBoxContainer/BlueEelTower" to="." method="_tower_select_button_pressed" binds= [3]]
+[connection signal="button_up" from="ScrollContainer/HBoxContainer/PufferfishTower" to="." method="_tower_select_button_pressed" binds= [1]]
+[connection signal="button_up" from="ScrollContainer/HBoxContainer/BlueEelTower" to="." method="_tower_select_button_pressed" binds= [2]]

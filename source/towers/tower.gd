@@ -10,9 +10,8 @@ class_name Tower;
 
 @onready var _attack_range_collision_shape: CollisionShape2D = $RangeArea/CollisionShape2D;
 @onready var _attack_speed_timer: Timer = $AttackSpeedTimer;
-@onready var _projectile_scene: PackedScene = preload("res://scenes/projectile.tscn");
 @onready var _tower_area: Area2D = $TowerArea;
-@onready var _sprite: MeshInstance2D = $Sprite;
+@onready var _sprite: Sprite2D = $Sprite2D;
 
 var _position: Vector2;
 var _path_entities_in_range: Array[PathEntity];
@@ -29,14 +28,14 @@ func _process(_delta: float) -> void:
 	if _tower_area.has_overlapping_areas() || Money.money < cost:
 		can_place = false;
 		_attack_range_color = Color(1, 0, 0, .3);
-		queue_redraw();
 		_sprite.material.set("shader_parameter/can_place", can_place);
+		queue_redraw();
 
 	else:
 		can_place = true;
 		_attack_range_color = Color(0, 0, 0, .3);
-		queue_redraw();
 		_sprite.material.set("shader_parameter/can_place", can_place)
+		queue_redraw();
 
 
 func _draw() -> void:
