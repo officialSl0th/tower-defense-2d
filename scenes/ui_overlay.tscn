@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cigiq5coqeney"]
+[gd_scene load_steps=14 format=3 uid="uid://cigiq5coqeney"]
 
 [ext_resource type="Script" path="res://source/ui/ui_controller.gd" id="1_f7cah"]
 [ext_resource type="PackedScene" uid="uid://dpjuaiaetup53" path="res://scenes/towers/coral_reef.tscn" id="2_2gdr5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://54qtthli173o" path="res://assets/sprites/heart.png" id="4_k18b4"]
 [ext_resource type="Texture2D" uid="uid://s4rvkq8dlv2m" path="res://assets/sprites/shell.png" id="4_lhv4d"]
 [ext_resource type="PackedScene" uid="uid://oti1ij2nqlba" path="res://scenes/towers/blue_eel.tscn" id="5_bqoux"]
+[ext_resource type="PackedScene" uid="uid://d0jnuhneiim5l" path="res://scenes/towers/shark.tscn" id="5_ftjgj"]
 [ext_resource type="FontFile" uid="uid://l52hmisuf86m" path="res://assets/fonts/retro_gaming.ttf" id="5_v4qyh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oaevw"]
@@ -37,7 +38,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f7cah")
-towers = Array[PackedScene]([ExtResource("2_2gdr5"), ExtResource("4_733sn"), ExtResource("5_bqoux")])
+towers = Array[PackedScene]([ExtResource("2_2gdr5"), ExtResource("4_733sn"), ExtResource("5_bqoux"), ExtResource("5_ftjgj")])
 
 [node name="WaveInformation" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -136,6 +137,12 @@ layout_mode = 2
 text = "Blue Eel
 200"
 
+[node name="SharkTower" type="Button" parent="ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 2.08165e-12)
+layout_mode = 2
+text = "Shark
+150"
+
 [node name="Area2D" type="Area2D" parent="ScrollContainer/HBoxContainer"]
 collision_layer = 2
 collision_mask = 2
@@ -147,3 +154,4 @@ shape = SubResource("RectangleShape2D_qe5dv")
 [connection signal="button_up" from="ScrollContainer/HBoxContainer/CoralReefTower" to="." method="_tower_select_button_pressed" binds= [0]]
 [connection signal="button_up" from="ScrollContainer/HBoxContainer/PufferfishTower" to="." method="_tower_select_button_pressed" binds= [1]]
 [connection signal="button_up" from="ScrollContainer/HBoxContainer/BlueEelTower" to="." method="_tower_select_button_pressed" binds= [2]]
+[connection signal="button_up" from="ScrollContainer/HBoxContainer/SharkTower" to="." method="_tower_select_button_pressed" binds= [3]]
