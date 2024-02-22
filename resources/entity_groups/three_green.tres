@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EntityGroupResource" load_steps=3 format=3 uid="uid://j1grgc8m1bxb"]
+
+[ext_resource type="Resource" uid="uid://dxyq57etc27dk" path="res://resources/path_entities/green_submarine.tres" id="1_8tekc"]
+[ext_resource type="Script" path="res://source/resource_scripts/entity_group_resource.gd" id="1_g35u7"]
+
+[resource]
+script = ExtResource("1_g35u7")
+entity_resource = ExtResource("1_8tekc")
+amount_of_entities = 3
+time_between_entities = 1.0
+path_id = 0

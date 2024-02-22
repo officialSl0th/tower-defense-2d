@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="WavesResource" load_steps=12 format=3 uid="uid://bumqdxkmdelg6"]
+
+[ext_resource type="Script" path="res://source/resource_scripts/waves_resource.gd" id="1_2d8dt"]
+[ext_resource type="Resource" uid="uid://c0c3tlavqsq41" path="res://resources/waves/wave_1_easy.tres" id="2_b1dfy"]
+[ext_resource type="Resource" uid="uid://12ieev47hget" path="res://resources/waves/wave_2_easy.tres" id="3_ees86"]
+[ext_resource type="Resource" uid="uid://cgnlgfox3203w" path="res://resources/waves/wave_3_easy.tres" id="4_cykqs"]
+[ext_resource type="Resource" uid="uid://vrh10c7dvxyu" path="res://resources/waves/wave_4_easy.tres" id="5_4pdhx"]
+[ext_resource type="Resource" uid="uid://cn6wchvrx6kcq" path="res://resources/waves/wave_5_easy.tres" id="6_lh80m"]
+[ext_resource type="Resource" uid="uid://5sgt2c8coddb" path="res://resources/waves/wave_6_easy.tres" id="7_w6j1j"]
+[ext_resource type="Resource" uid="uid://vwyqf6c5m8k6" path="res://resources/waves/wave_7_easy.tres" id="8_cnsy7"]
+[ext_resource type="Resource" uid="uid://dcyfnt08s8dik" path="res://resources/waves/wave_8_easy.tres" id="9_13ung"]
+[ext_resource type="Resource" uid="uid://d0hkjdt0jy2bg" path="res://resources/waves/wave_9_easy.tres" id="10_nn3t6"]
+[ext_resource type="Resource" uid="uid://dccow7evb7hgn" path="res://resources/waves/wave_10_easy.tres" id="11_djf2f"]
+
+[resource]
+script = ExtResource("1_2d8dt")
+time_before_waves = 5.0
+time_between_waves = 3.0
+waves = Array[Resource("res://source/resource_scripts/wave_resource.gd")]([ExtResource("2_b1dfy"), ExtResource("3_ees86"), ExtResource("4_cykqs"), ExtResource("5_4pdhx"), ExtResource("6_lh80m"), ExtResource("7_w6j1j"), ExtResource("8_cnsy7"), ExtResource("9_13ung"), ExtResource("10_nn3t6"), ExtResource("11_djf2f")])

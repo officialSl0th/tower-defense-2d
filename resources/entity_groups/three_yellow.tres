@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EntityGroupResource" load_steps=2 format=3 uid="uid://bjqjgbjkwsgvi"]
+
+[ext_resource type="Script" path="res://source/resource_scripts/entity_group_resource.gd" id="1_ybvbl"]
+
+[resource]
+script = ExtResource("1_ybvbl")
+amount_of_entities = 0
+time_between_entities = 0.0
+path_id = 0

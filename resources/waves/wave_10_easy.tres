@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="WaveResource" load_steps=6 format=3 uid="uid://dccow7evb7hgn"]
+
+[ext_resource type="Resource" uid="uid://b35m22b1dpcnc" path="res://resources/entity_groups/two_purple.tres" id="1_618ek"]
+[ext_resource type="Script" path="res://source/resource_scripts/wave_resource.gd" id="1_s38iy"]
+[ext_resource type="Resource" uid="uid://b48645d6jspvc" path="res://resources/entity_groups/single_red.tres" id="2_i7psw"]
+[ext_resource type="Resource" uid="uid://d8070x5ngg6w" path="res://resources/entity_groups/five_yellow.tres" id="3_qv4k0"]
+[ext_resource type="Resource" uid="uid://mdu1256k5xx0" path="res://resources/entity_groups/five_green.tres" id="4_fep6r"]
+
+[resource]
+script = ExtResource("1_s38iy")
+entity_groups = Array[Resource("res://source/resource_scripts/entity_group_resource.gd")]([ExtResource("1_618ek"), ExtResource("2_i7psw"), ExtResource("3_qv4k0"), ExtResource("4_fep6r")])
+time_between_groups = 0.0

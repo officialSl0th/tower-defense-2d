@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WaveResource" load_steps=3 format=3 uid="uid://c0c3tlavqsq41"]
+
+[ext_resource type="Resource" uid="uid://bvaaywhk8f3e7" path="res://resources/entity_groups/single_green.tres" id="1_67b3m"]
+[ext_resource type="Script" path="res://source/resource_scripts/wave_resource.gd" id="1_xrphx"]
+
+[resource]
+script = ExtResource("1_xrphx")
+entity_groups = Array[Resource("res://source/resource_scripts/entity_group_resource.gd")]([ExtResource("1_67b3m"), ExtResource("1_67b3m")])
+time_between_groups = 2.0

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PathEntityResource" load_steps=2 format=3 uid="uid://bf0hhw74fnb27"]
+
+[ext_resource type="Script" path="res://source/resource_scripts/path_entity_resource.gd" id="1_kq46n"]
+
+[resource]
+script = ExtResource("1_kq46n")
+move_speed = 100.0
+total_health = 300
+money = 100

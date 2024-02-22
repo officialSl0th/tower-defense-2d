@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bb8obo8esgsr6" path="res://assets/sprites/background1.png" id="1_u4pyy"]
 [ext_resource type="Script" path="res://source/waves/wave_controller.gd" id="1_v078i"]
-[ext_resource type="Resource" uid="uid://d3vt4f752obmp" path="res://resources/wave_containers/test_waves.tres" id="2_qpy4s"]
+[ext_resource type="Resource" uid="uid://bumqdxkmdelg6" path="res://resources/wave_containers/easy_waves.tres" id="3_2kamb"]
 [ext_resource type="PackedScene" uid="uid://cigiq5coqeney" path="res://scenes/ui_overlay.tscn" id="3_aelhk"]
 [ext_resource type="PackedScene" uid="uid://bbcoo6w6wllv8" path="res://scenes/path_entity.tscn" id="3_puh2s"]
 [ext_resource type="PackedScene" uid="uid://dbq6h6fwaxcya" path="res://scenes/bubble_particle.tscn" id="6_767in"]
@@ -33,7 +33,7 @@ centered = false
 
 [node name="Paths" type="Node2D" parent="." node_paths=PackedStringArray("paths")]
 script = ExtResource("1_v078i")
-waves = ExtResource("2_qpy4s")
+waves = ExtResource("3_2kamb")
 paths = [NodePath("Path1")]
 entity_scene = ExtResource("3_puh2s")
 
