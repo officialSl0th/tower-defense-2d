@@ -99,7 +99,7 @@ expand_mode = 3
 
 [node name="MoneyLabel" type="Label" parent="ResourceInformation/MoneyContainer"]
 layout_mode = 2
-text = "500"
+text = "300"
 label_settings = SubResource("LabelSettings_0t5x5")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
