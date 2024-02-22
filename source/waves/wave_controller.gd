@@ -69,8 +69,11 @@ func _end_wave() -> void:
 
 func _start_entity_group() -> void:
 	_current_entity_group = _current_wave.entity_groups[_current_entity_group_index];
-	_entity_timer.set_wait_time(_current_entity_group.time_between_entities);
-	_entity_timer.start();
+
+	if _current_entity_group.time_between_entities > 0:
+		_entity_timer.set_wait_time(_current_entity_group.time_between_entities);
+		_entity_timer.start();
+
 	_spawn_entity();
 
 
