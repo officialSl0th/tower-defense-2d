@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://jiejdu81etbj"]
+
+[ext_resource type="Script" path="res://source/ui/game_over.gd" id="1_1na3b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_btxs1"]
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_31m34"]
+font_size = 50
+
+[node name="GameOverOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1na3b")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -295.0
+offset_top = -340.0
+offset_right = 295.0
+offset_bottom = -203.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_btxs1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -906.0
+offset_top = -193.0
+offset_right = 906.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "If you lost, you suck, try again. But if you won congrats, play again anyways"
+label_settings = SubResource("LabelSettings_31m34")
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 160.0
+offset_right = 250.0
+offset_bottom = 257.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+text = "Back to main menu"
+
+[connection signal="button_up" from="Play" to="." method="_on_manu_button_pressed"]

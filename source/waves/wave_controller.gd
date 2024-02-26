@@ -10,6 +10,7 @@ class_name WaveController
 @onready var _entity_timer: Timer = Timer.new();
 @onready var _wave_label: Label = get_node("/root/Main/CanvasLayer/UIOverlay/WaveInformation/WaveLabel");
 @onready var _countdown_label: Label = get_node("/root/Main/CanvasLayer/UIOverlay/WaveInformation/CountdownLabel");
+@onready var _game_over_scene: PackedScene = preload("res://scenes/game_over_overlay.tscn");
 
 var _current_wave_index: int = 0;
 var _current_entity_group_index: int = 0;
@@ -49,6 +50,12 @@ func _process(_delta: float) -> void:
 	_countdown_label.set_text("Begins in " + _formatted + " seconds");
 
 
+func stop_waves() -> void:
+	_wave_timer.stop();
+	_entity_group_timer.stop();
+	_entity_timer.stop();
+
+
 func _start_wave() -> void:
 	_current_wave = waves.waves[_current_wave_index];
 	_countdown_label.set_text("");
@@ -59,12 +66,17 @@ func _start_wave() -> void:
 
 
 func _end_wave() -> void:
+	if Health.health == 0:
+		return;
+
 	_current_wave_index += 1;
 	_wave_label.set_text("Wave " + str(_current_wave_index + 1));
 
 	if _current_wave_index < len(waves.waves):
 		_wave_timer.set_wait_time(waves.time_between_waves);
 		_wave_timer.start();
+	else:
+		get_node("/root/Main/CanvasLayer").add_child(_game_over_scene.instantiate());
 
 
 func _start_entity_group() -> void:

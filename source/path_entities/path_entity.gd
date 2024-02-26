@@ -29,6 +29,9 @@ func _physics_process(delta: float) -> void:
 		Health.health -= _total_health;
 		_remove();
 
+	if Health.health == 0:
+		set_physics_process(false);
+
 	set_progress(get_progress() + _move_speed * delta);
 
 
