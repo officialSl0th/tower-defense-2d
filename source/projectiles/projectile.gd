@@ -17,13 +17,20 @@ func _process(delta) -> void:
 		queue_free();
 
 
-func initialize(direction: Vector2, speed: float, max_travel_distance: float, damage: int) -> void:
-	_direction = direction;
+func initialize(speed: float, max_travel_distance: float, damage: int) -> void:
+	_direction = Vector2.from_angle(get_rotation());
+	var _x = _direction[0];
+	_direction[0] = _direction[1];
+	_direction[1] = -_x;
+
 	_speed = speed;
 	_max_travel_distance = max_travel_distance;
 	_damage = damage;
 
-	set_rotation(atan(direction[1] / direction[0]));
+
+func set_projectile_rotation(direction: Vector2) -> void:
+	_direction = direction;
+	set_rotation(get_position().angle_to_point(direction));
 
 
 func _hit(body: Area2D) -> void:

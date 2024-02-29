@@ -15,5 +15,6 @@ func _attack() -> void:
 
 func _spawn_projectile(direction: Vector2) -> void:
 	var _projectile: Projectile = projectile.instantiate();
-	_projectile.initialize(direction, projectile_speed, max_projectile_range, attack_damage);
+	_projectile.initialize(projectile_speed, max_projectile_range, attack_damage);
+	_projectile.set_projectile_rotation(direction);
 	add_child(_projectile);

@@ -12,13 +12,15 @@ func _attack() -> void:
 	var _time_to_hit = _dist_to_target / projectile_speed;
 	var _new_target = _path_entities_in_range[0].get_future_position(_time_to_hit);
 
-	var _direction: Vector2 = (_new_target - _position).normalized();
+	_rotate_tower(_new_target);
+
+	var _direction = _position.direction_to(_new_target);
 	call_deferred("_spawn_projectile", _direction);
 
 
 func _spawn_projectile(direction: Vector2) -> void:
 	var _projectile = projectile.instantiate();
-	_projectile.initialize(direction, projectile_speed, max_projectile_range, attack_damage);
+	_projectile.initialize(projectile_speed, max_projectile_range, attack_damage);
 	_projectile.duration_of_shock = duration_of_shock;
 	_projectile.time_between_shocks = time_between_shocks;
 	_projectile.shock_damage = shock_damage;

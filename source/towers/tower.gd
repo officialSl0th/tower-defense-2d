@@ -86,3 +86,7 @@ func confirm_tower_placement() -> bool:
 
 func cancel_tower_placement() -> void:
 	queue_free();
+
+
+func _rotate_tower(target: Vector2) -> void:
+	set_rotation(target.angle_to_point(_position) - PI / 2);
