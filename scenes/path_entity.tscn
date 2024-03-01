@@ -14,7 +14,6 @@ resource_local_to_scene = true
 [node name="PathEntity" type="PathFollow2D"]
 position = Vector2(2.08165e-12, 2.08165e-12)
 rotation = 0.00115473
-rotates = false
 loop = false
 script = ExtResource("1_g1j3x")
 
