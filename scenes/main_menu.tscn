@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://oeufp8bi6jfc"]
+[gd_scene load_steps=7 format=3 uid="uid://oeufp8bi6jfc"]
 
 [ext_resource type="Script" path="res://source/ui/main_menu.gd" id="1_ebv04"]
 [ext_resource type="Texture2D" uid="uid://bb8obo8esgsr6" path="res://assets/sprites/background1.png" id="2_75l7y"]
-
-[sub_resource type="FontVariation" id="FontVariation_wh3lp"]
+[ext_resource type="PackedScene" uid="uid://dbq6h6fwaxcya" path="res://scenes/bubble_particle.tscn" id="3_rya11"]
+[ext_resource type="FontFile" uid="uid://l52hmisuf86m" path="res://assets/fonts/retro_gaming.ttf" id="3_s5on7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q0suo"]
-font = SubResource("FontVariation_wh3lp")
+font = ExtResource("3_s5on7")
 font_size = 100
 
 [sub_resource type="LabelSettings" id="LabelSettings_klthl"]
+font = ExtResource("3_s5on7")
 font_size = 50
 
 [node name="MainMenu" type="Control"]
@@ -30,6 +31,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_75l7y")
+
+[node name="Particles" type="Node2D" parent="."]
+
+[node name="Bubbles" parent="Particles" instance=ExtResource("3_rya11")]
+position = Vector2(1271, 394)
+time_before_first = 1.0
+time_between = 3.0
+
+[node name="Bubbles2" parent="Particles" instance=ExtResource("3_rya11")]
+position = Vector2(445, 481)
+time_before_first = 2.0
+time_between = 2.0
+
+[node name="Bubbles3" parent="Particles" instance=ExtResource("3_rya11")]
+position = Vector2(810, 255)
+time_before_first = 5.0
+time_between = 3.0
+
+[node name="Bubbles4" parent="Particles" instance=ExtResource("3_rya11")]
+position = Vector2(1131, 751)
+time_before_first = 0.5
+time_between = 4.0
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -64,11 +87,15 @@ grow_vertical = 2
 [node name="Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_s5on7")
+theme_override_font_sizes/font_size = 50
 text = "Play"
 
 [node name="Options" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_s5on7")
+theme_override_font_sizes/font_size = 50
 disabled = true
 text = "Options
 "
@@ -76,6 +103,8 @@ text = "Options
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_s5on7")
+theme_override_font_sizes/font_size = 50
 text = "Quit
 "
 

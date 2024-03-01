@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0jnuhneiim5l"]
+[gd_scene load_steps=6 format=3 uid="uid://d0jnuhneiim5l"]
 
 [ext_resource type="Script" path="res://source/towers/shark.gd" id="1_wkpxg"]
 [ext_resource type="Material" uid="uid://df0tympq1qs0" path="res://shader/invalid_placement/invalid_placement_material.tres" id="2_s58sn"]
+[ext_resource type="Texture2D" uid="uid://bsg7itx7jvgeo" path="res://assets/sprites/shark.png" id="3_1t2cl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atgyj"]
 size = Vector2(80, 86)
@@ -21,8 +22,9 @@ cost = 150
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 material = ExtResource("2_s58sn")
-position = Vector2(3.8147e-06, 10)
+position = Vector2(3.8147e-06, 2)
 scale = Vector2(6.625, 6.625)
+texture = ExtResource("3_1t2cl")
 
 [node name="TowerArea" type="Area2D" parent="."]
 position = Vector2(3.8147e-06, 10)

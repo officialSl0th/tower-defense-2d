@@ -16,6 +16,8 @@ var _total_health: int;
 var _current_health: int;
 
 func _ready() -> void:
+	$Sprite2D.set_texture(resource.sprite);
+
 	_move_speed = resource.move_speed;
 	_total_health = resource.total_health;
 	_current_health = _total_health;

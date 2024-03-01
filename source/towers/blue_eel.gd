@@ -15,10 +15,10 @@ func _attack() -> void:
 	_rotate_tower(_new_target);
 
 	var _direction = _position.direction_to(_new_target);
-	call_deferred("_spawn_projectile", _direction);
+	call_deferred("_spawn_projectile");
 
 
-func _spawn_projectile(direction: Vector2) -> void:
+func _spawn_projectile() -> void:
 	var _projectile = projectile.instantiate();
 	_projectile.initialize(projectile_speed, max_projectile_range, attack_damage);
 	_projectile.duration_of_shock = duration_of_shock;

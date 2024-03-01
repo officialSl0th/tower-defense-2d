@@ -122,24 +122,32 @@ size_flags_vertical = 3
 [node name="CoralReefTower" type="Button" parent="ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 2.08165e-12)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_v4qyh")
+theme_override_font_sizes/font_size = 30
 text = "Coral Reef
 100"
 
 [node name="PufferfishTower" type="Button" parent="ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 2.08165e-12)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_v4qyh")
+theme_override_font_sizes/font_size = 30
 text = "Pufferfish
 300"
 
 [node name="BlueEelTower" type="Button" parent="ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 2.08165e-12)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_v4qyh")
+theme_override_font_sizes/font_size = 30
 text = "Blue Eel
 200"
 
 [node name="SharkTower" type="Button" parent="ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 2.08165e-12)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_v4qyh")
+theme_override_font_sizes/font_size = 30
 text = "Shark
 150"
 

@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="PathEntityResource" load_steps=2 format=3 uid="uid://dxyq57etc27dk"]
+[gd_resource type="Resource" script_class="PathEntityResource" load_steps=3 format=3 uid="uid://dxyq57etc27dk"]
 
 [ext_resource type="Script" path="res://source/resource_scripts/path_entity_resource.gd" id="1_73cbq"]
+[ext_resource type="Texture2D" uid="uid://ckour88bnqwv4" path="res://assets/sprites/sub_green.png" id="2_g5q4e"]
 
 [resource]
 script = ExtResource("1_73cbq")
+sprite = ExtResource("2_g5q4e")
 move_speed = 100.0
 total_health = 30
 money = 50

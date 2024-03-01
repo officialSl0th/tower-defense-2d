@@ -1,11 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bbcoo6w6wllv8"]
 
 [ext_resource type="Script" path="res://source/path_entities/path_entity.gd" id="1_g1j3x"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_h3k30"]
+[ext_resource type="Texture2D" uid="uid://ckour88bnqwv4" path="res://assets/sprites/sub_green.png" id="2_l8tul"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gtd4"]
-size = Vector2(49.9988, 50)
+size = Vector2(79.9976, 39.9977)
 
 [sub_resource type="QuadMesh" id="QuadMesh_nnou6"]
 
@@ -19,14 +18,16 @@ rotates = false
 loop = false
 script = ExtResource("1_g1j3x")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-scale = Vector2(50, 50)
-mesh = SubResource("QuadMesh_h3k30")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+scale = Vector2(5, 5)
+texture = ExtResource("2_l8tul")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.00866047, -1.92043e-06)
+position = Vector2(-0.00115351, -0.00230802)
 shape = SubResource("RectangleShape2D_5gtd4")
 
 [node name="HealthContainer" type="Node2D" parent="."]
